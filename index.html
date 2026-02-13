@@ -1,0 +1,34 @@
+---
+layout: default
+title: Home
+---
+<section class="hero">
+  <img
+    src="https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?auto=format&fit=crop&w=1800&q=80"
+    alt="Warmly lit handcrafted lamps in an interior"
+  />
+  <div class="hero-overlay">
+    <div class="container">
+      <h1>Eindeloos Licht</h1>
+      <p>Designverlichting en lichtobjecten voor thuis, horeca en architectuurprojecten.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container products-overview">
+  <h2>Onze producten</h2>
+  <div class="product-grid">
+    {% for product in site.products %}
+      <article class="product-card">
+        <a href="{{ product.url | relative_url }}">
+          <img src="{{ product.images[0] }}" alt="{{ product.title }}" loading="lazy" />
+          <div class="product-card-body">
+            <h3>{{ product.title }}</h3>
+            <p class="product-price">€ {{ product.price }}</p>
+            <p>{{ product.short_description }}</p>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</section>

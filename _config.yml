@@ -1,0 +1,17 @@
+title: Eindeloos Licht
+email: hello@eindelooslicht.nl
+description: Unieke lichtobjecten en designproducten van Eindeloos Licht.
+baseurl: ""
+url: ""
+
+collections:
+  products:
+    output: true
+    permalink: /products/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "products"
+    values:
+      layout: product
