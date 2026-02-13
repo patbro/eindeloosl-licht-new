@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<section class="container product-page">
+  <a class="back-link" href="{{ '/' | relative_url }}">← Terug naar overzicht</a>
+
+  <div class="product-layout">
+    <div class="carousel" data-carousel>
+      <a class="carousel-back-button" href="{{ '/' | relative_url }}">← Terug</a>
+      <button class="carousel-btn prev" type="button" aria-label="Vorige afbeelding">‹</button>
+      <div class="carousel-track">
+        {% for image in page.images %}
+          <img src="{{ image }}" alt="{{ page.title }} - foto {{ forloop.index }}" class="carousel-image {% if forloop.first %}is-active{% endif %}" />
+        {% endfor %}
+      </div>
+      <button class="carousel-btn next" type="button" aria-label="Volgende afbeelding">›</button>
+      <div class="carousel-dots" aria-hidden="true">
+        {% for image in page.images %}
+          <button class="dot {% if forloop.first %}is-active{% endif %}" type="button"></button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <article class="product-info">
+      <h1>{{ page.title }}</h1>
+      <p class="product-price">€ {{ page.price }}</p>
+      <p>{{ page.description }}</p>
+      <a class="order-button" href="{{ '/contact/' | relative_url }}?product={{ page.title | uri_escape }}">Bestel of werk samen</a>
+    </article>
+  </div>
+</section>
